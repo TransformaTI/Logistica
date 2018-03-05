@@ -1,0 +1,494 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.30319</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6D15F365-7A68-4FC7-9A3F-6867E07BBE32}</ProjectGuid>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>Logistica.ico</ApplicationIcon>
+    <AssemblyKeyContainerName />
+    <AssemblyName>Logistica²</AssemblyName>
+    <AssemblyOriginatorKeyFile />
+    <AssemblyOriginatorKeyMode>None</AssemblyOriginatorKeyMode>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionStrict>Off</OptionStrict>
+    <RootNamespace>Logistica</RootNamespace>
+    <StartupObject />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <OldToolsVersion>0.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>http://localhost/Logistica²/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Logistica².xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile />
+    <DefineConstants />
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Logistica².xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile />
+    <DefineConstants />
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42353,42354,42355</NoWarn>
+    <DebugType>none</DebugType>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility">
+      <Name>Accessibility</Name>
+    </Reference>
+    <Reference Include="BitacoraAutotanqueAuxilio, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\BitacoraAutotanqueAuxilio.dll</HintPath>
+    </Reference>
+    <Reference Include="Catalogo, Version=1.0.1679.16862, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Catalogo.dll</HintPath>
+    </Reference>
+    <Reference Include="ComisionPortatil, Version=1.0.6541.17297, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>obj\ComisionPortatil.dll</HintPath>
+    </Reference>
+    <Reference Include="ControlesBase, Version=1.1.5711.28961, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\ControlesBase.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.Core, Version=1.7.0.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\GMap.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms, Version=1.7.0.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\GMap.NET.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Scripting">
+      <HintPath>bin\Interop.Scripting.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MapaSoft.Runtime, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MapaSoft.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic">
+      <Name>Microsoft.VisualBasic</Name>
+    </Reference>
+    <Reference Include="PortatilClasses, Version=1.7.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\PortatilClasses.dll</HintPath>
+    </Reference>
+    <Reference Include="ReporteDinamico, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\ReporteDinamico.dll</HintPath>
+    </Reference>
+    <Reference Include="SigaMetClasses, Version=2.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\SigaMetClasses.dll</HintPath>
+    </Reference>
+    <Reference Include="SigametSeguridad, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\SigametSeguridad.dll</HintPath>
+    </Reference>
+    <Reference Include="SVCC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\SVCC.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.DirectoryServices">
+      <Name>system.directoryservices</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Messaging">
+      <Name>System.Messaging</Name>
+    </Reference>
+    <Reference Include="System.ServiceProcess">
+      <Name>System.ServiceProcess</Name>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbrirCiclo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Acerca.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActualizacionSesion.designer.vb">
+      <DependentUpon>ActualizacionSesion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ActualizacionSesion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Asignacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignacionOperador.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignacionOperadorPosturero.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignacionPostureros.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignacionRuta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignacionRutaGeneral.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Autotanque.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusquedaFolios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CancelacionFolio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapturaAutotanque.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapturaFactorCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapturaLogistico.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapturaOperador.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapturaRuta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapturaUsuarioMovil.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditaMotivoAutotanqueNA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EliminaFinFia.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FactorCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoRuta.Designer.vb">
+      <DependentUpon>frmNuevoRuta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmNuevoRuta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentasPortatilAgrupadas.Designer.vb">
+      <DependentUpon>VentasPortatilAgrupadas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VentasPortatilAgrupadas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GeneraAsignacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Globales.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Logistico.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuloBloqueado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Operador.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PedidoPortatil.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personalizar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrestamoAutotanque.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrestamoOperador.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableroMonitorPanico.Designer.vb">
+      <DependentUpon>TableroMonitorPanico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TableroMonitorPanico.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsuarioMovil.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentasPortatil.Designer.vb">
+      <DependentUpon>VentasPortatil.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VentasPortatil.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ruta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RutasDuplicadas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeleccionTipoAsignacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Splash.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Content Include="Logistica.ico" />
+    <EmbeddedResource Include="AbrirCiclo.resx">
+      <DependentUpon>AbrirCiclo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Acerca.resx">
+      <DependentUpon>Acerca.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActualizacionSesion.resx">
+      <DependentUpon>ActualizacionSesion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Asignacion.resx">
+      <DependentUpon>Asignacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsignacionOperador.resx">
+      <DependentUpon>AsignacionOperador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsignacionOperadorPosturero.resx">
+      <DependentUpon>AsignacionOperadorPosturero.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsignacionPostureros.resx">
+      <DependentUpon>AsignacionPostureros.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsignacionRuta.resx">
+      <DependentUpon>AsignacionRuta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsignacionRutaGeneral.resx">
+      <DependentUpon>AsignacionRutaGeneral.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Autotanque.resx">
+      <DependentUpon>Autotanque.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusquedaFolios.resx">
+      <DependentUpon>BusquedaFolios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CancelacionFolio.resx">
+      <DependentUpon>CancelacionFolio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapturaAutotanque.resx">
+      <DependentUpon>CapturaAutotanque.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapturaFactorCliente.resx">
+      <DependentUpon>CapturaFactorCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapturaLogistico.resx">
+      <DependentUpon>CapturaLogistico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapturaOperador.resx">
+      <DependentUpon>CapturaOperador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapturaRuta.resx">
+      <DependentUpon>CapturaRuta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapturaUsuarioMovil.resx">
+      <DependentUpon>CapturaUsuarioMovil.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditaMotivoAutotanqueNA.resx">
+      <DependentUpon>EditaMotivoAutotanqueNA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EliminaFinFia.resx">
+      <DependentUpon>EliminaFinFia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FactorCliente.resx">
+      <DependentUpon>FactorCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevoRuta.resx">
+      <DependentUpon>frmNuevoRuta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentasPortatilAgrupadas.resx">
+      <DependentUpon>VentasPortatilAgrupadas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GeneraAsignacion.resx">
+      <DependentUpon>GeneraAsignacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="licenses.licx" />
+    <EmbeddedResource Include="Logistico.resx">
+      <DependentUpon>Logistico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuloBloqueado.resx">
+      <DependentUpon>ModuloBloqueado.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operador.resx">
+      <DependentUpon>Operador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PedidoPortatil.resx">
+      <DependentUpon>PedidoPortatil.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personalizar.resx">
+      <DependentUpon>Personalizar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrestamoAutotanque.resx">
+      <DependentUpon>PrestamoAutotanque.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrestamoOperador.resx">
+      <DependentUpon>PrestamoOperador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TableroMonitorPanico.resx">
+      <DependentUpon>TableroMonitorPanico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsuarioMovil.resx">
+      <DependentUpon>UsuarioMovil.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentasPortatil.resx">
+      <DependentUpon>VentasPortatil.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ruta.resx">
+      <DependentUpon>Ruta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RutasDuplicadas.resx">
+      <DependentUpon>RutasDuplicadas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SeleccionTipoAsignacion.resx">
+      <DependentUpon>SeleccionTipoAsignacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Splash.resx">
+      <DependentUpon>Splash.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{CF845C55-C321-4742-B673-E6212D061ED9}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Logistica -Classes and controls-\Logistica.vbproj">
+      <Project>{1E3079B0-5128-416F-8FBA-F9CFD683C8F4}</Project>
+      <Name>Logistica</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>

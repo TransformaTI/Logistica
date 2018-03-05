@@ -1,0 +1,42 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Logistica²", "Logistica².vbproj", "{6D15F365-7A68-4FC7-9A3F-6867E07BBE32}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Logistica", "Logistica -Classes and controls-\Logistica.vbproj", "{1E3079B0-5128-416F-8FBA-F9CFD683C8F4}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://192.168.1.30:8080/tfs/proyectosgm
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Logistica\u0020-Classes\u0020and\u0020controls-\\Logistica.vbproj
+		SccProjectName1 = Logistica\u0020-Classes\u0020and\u0020controls-
+		SccLocalPath1 = Logistica\u0020-Classes\u0020and\u0020controls-
+		SccProjectUniqueName2 = Logistica².vbproj
+		SccLocalPath2 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6D15F365-7A68-4FC7-9A3F-6867E07BBE32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D15F365-7A68-4FC7-9A3F-6867E07BBE32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D15F365-7A68-4FC7-9A3F-6867E07BBE32}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6D15F365-7A68-4FC7-9A3F-6867E07BBE32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D15F365-7A68-4FC7-9A3F-6867E07BBE32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D15F365-7A68-4FC7-9A3F-6867E07BBE32}.Release|x86.ActiveCfg = Release|Any CPU
+		{1E3079B0-5128-416F-8FBA-F9CFD683C8F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E3079B0-5128-416F-8FBA-F9CFD683C8F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E3079B0-5128-416F-8FBA-F9CFD683C8F4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1E3079B0-5128-416F-8FBA-F9CFD683C8F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E3079B0-5128-416F-8FBA-F9CFD683C8F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E3079B0-5128-416F-8FBA-F9CFD683C8F4}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
