@@ -457,7 +457,7 @@ Public Class frmOperador
         'vgrdCatalogo
         '
         Me.vgrdCatalogo.AlternativeBackColor = System.Drawing.Color.Gainsboro
-        Me.vgrdCatalogo.AutoArrange = False
+        ' Me.vgrdCatalogo.AutoArrange = False
         Me.vgrdCatalogo.CheckCondition = Nothing
         Me.vgrdCatalogo.DataSource = Nothing
         Me.vgrdCatalogo.Dock = System.Windows.Forms.DockStyle.Fill
@@ -841,7 +841,7 @@ Public Class frmOperador
         Else
             Settings = New AppSettings(Application.StartupPath & "\" & "Default.Logistica.exe.config")
         End If
-        Carga de parámetros
+        'Carga de parámetros
         Me.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmOperador", "BackColor")))
         vgrdCatalogo.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmOperador", "CatalogoBackColor")))
         vgrdCatalogo.AlternativeBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmOperador", "CatalogoAltBackColor")))
