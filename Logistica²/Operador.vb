@@ -3,6 +3,10 @@ Imports System.Data
 Imports System.Data.SqlClient
 Imports System.IO
 Imports Logistica
+Imports RTGMGateway
+Imports RTGMCore
+
+
 
 
 Public Class frmOperador
@@ -453,7 +457,7 @@ Public Class frmOperador
         'vgrdCatalogo
         '
         Me.vgrdCatalogo.AlternativeBackColor = System.Drawing.Color.Gainsboro
-        'Me.vgrdCatalogo.AutoArrange = False
+        Me.vgrdCatalogo.AutoArrange = False
         Me.vgrdCatalogo.CheckCondition = Nothing
         Me.vgrdCatalogo.DataSource = Nothing
         Me.vgrdCatalogo.Dock = System.Windows.Forms.DockStyle.Fill
@@ -555,7 +559,27 @@ Public Class frmOperador
                 ExMessage(ex)
             End Try
             'Llenado de grid
+            Dim objGateway = New RTGMGateway.RTGMGateway(1, "Server=192.168.1.30;Database=sigametdevtb;User Id=ROPIMA;Password = ROPIMA9999;")
+            objGateway.URLServicio = "http://192.168.1.30:88/GasMetropolitanoRuntimeService.svc"
+
+            Dim ConsultaCRM As DataTable = dtOperador
+            For Each row As DataRow In ConsultaCRM.Rows
+                Dim objRequest As RTGMGateway.SolicitudGateway
+                objRequest.IDCliente = CStr(row("Cliente"))
+                Dim objDireccionEntega = New RTGMCore.DireccionEntrega
+                objDireccionEntega = objGateway.buscarDireccionEntrega(objRequest)
+                row("Nombre") = objDireccionEntega.Nombre
+                row("celular") = objDireccionEntega.TelefonoCelular
+                row("Tipo") = objDireccionEntega.TipoCliente
+                If objDireccionEntega.Ruta IsNot Nothing Then
+                    row("Ruta") = objDireccionEntega.Ruta.IDRuta
+                End If
+                row("Status") = objDireccionEntega.STATUS
+
+            Next
+
             vgrdCatalogo.DataSource = dtOperador
+            vgrdCatalogo.DataSource = ConsultaCRM
             If dtOperador.Rows.Count > 0 Then
                 vgrdCatalogo.Items(0).Selected = True
             End If
@@ -571,13 +595,15 @@ Public Class frmOperador
                 txtCliente.Text = CStr(FoundRow("Cliente"))
                 txtNotasBlancas.Text = CStr(FoundRow("MaxNotasBlancas"))
                 txtDiasCredito.Text = CStr(FoundRow("MaxDiasCredito"))
-                If CStr(FoundRow("Status")).Trim = "INACTIVO" Then
-                    btnInactivar.Enabled = False
-                Else
-                    btnInactivar.Enabled = True AndAlso OperacionLogistica(4).Habilitada
+                If FoundRow("Status") IsNot DBNull.Value Then
+                    If CStr(FoundRow("Status")).Trim = "INACTIVO" Then
+                        btnInactivar.Enabled = False
+                    Else
+                        btnInactivar.Enabled = True AndAlso OperacionLogistica(4).Habilitada
+                    End If
                 End If
             Else
-                txtCliente.Clear()
+                    txtCliente.Clear()
                 txtNotasBlancas.Clear()
                 txtDiasCredito.Clear()
             End If
@@ -704,7 +730,7 @@ Public Class frmOperador
             If Not vgrdCatalogo.CurrentRow Is Nothing Then
                 'Confirmación de acción
                 If MessageBox.Show("¿Desea eliminar al operador " & CStr(vgrdCatalogo.CurrentRow("Empleado")) & " " _
-                        & CStr(vgrdCatalogo.CurrentRow("Nombre")) & "?", Application.ProductName & "v." & Application.ProductVersion, _
+                        & CStr(vgrdCatalogo.CurrentRow("Nombre")) & "?", Application.ProductName & "v." & Application.ProductVersion,
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.Yes Then
                     Dim cmdLogistica As New SqlCommand("Delete from Operador Where Operador = @Operador", cnSigamet)
                     Me.Cursor = Cursors.WaitCursor
@@ -740,7 +766,7 @@ Public Class frmOperador
             If Not vgrdCatalogo.CurrentRow Is Nothing Then
                 'Confirmación de acción
                 If MessageBox.Show("¿Desea inactivar al operador " & CStr(vgrdCatalogo.CurrentRow("Empleado")) & " " _
-                      & CStr(vgrdCatalogo.CurrentRow("Nombre")) & "?", Application.ProductName & "v." & Application.ProductVersion, _
+                      & CStr(vgrdCatalogo.CurrentRow("Nombre")) & "?", Application.ProductName & "v." & Application.ProductVersion,
                       MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.Yes Then
                     Dim cmdLogistica As New SqlClient.SqlCommand("Update Operador set Status = 'INACTIVO' where Operador = @Operador", cnSigamet)
                     'Carga de parámetros
@@ -815,7 +841,7 @@ Public Class frmOperador
         Else
             Settings = New AppSettings(Application.StartupPath & "\" & "Default.Logistica.exe.config")
         End If
-        'Carga de parámetros
+        Carga de parámetros
         Me.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmOperador", "BackColor")))
         vgrdCatalogo.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmOperador", "CatalogoBackColor")))
         vgrdCatalogo.AlternativeBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmOperador", "CatalogoAltBackColor")))
