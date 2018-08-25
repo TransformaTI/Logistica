@@ -67,6 +67,7 @@
     <DebugType>full</DebugType>
     <WarningsAsErrors>
     </WarningsAsErrors>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\</OutputPath>
@@ -134,9 +135,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\ReporteDinamico.dll</HintPath>
     </Reference>
+    <Reference Include="RTGMGateway">
+      <HintPath>..\..\Gateway\RTGMGateway\bin\Debug\RTGMGateway.dll</HintPath>
+    </Reference>
     <Reference Include="SigaMetClasses, Version=2.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\SigaMetClasses.dll</HintPath>
+      <HintPath>..\..\Librerias\SigaMetClasses\bin\SigaMetClasses.dll</HintPath>
     </Reference>
     <Reference Include="SigametSeguridad, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
