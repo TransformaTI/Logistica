@@ -457,7 +457,7 @@ Public Class frmOperador
         'vgrdCatalogo
         '
         Me.vgrdCatalogo.AlternativeBackColor = System.Drawing.Color.Gainsboro
-        ' Me.vgrdCatalogo.AutoArrange = False
+        'Me.vgrdCatalogo.AutoArrange = False
         Me.vgrdCatalogo.CheckCondition = Nothing
         Me.vgrdCatalogo.DataSource = Nothing
         Me.vgrdCatalogo.Dock = System.Windows.Forms.DockStyle.Fill
@@ -559,34 +559,41 @@ Public Class frmOperador
                 ExMessage(ex)
             End Try
             'Llenado de grid
-            Dim objGateway = New RTGMGateway.RTGMGateway(1, "Server=192.168.1.30;Database=sigametdevtb;User Id=ROPIMA;Password = ROPIMA9999;")
-            objGateway.URLServicio = "http://192.168.1.30:88/GasMetropolitanoRuntimeService.svc"
+            Dim oConfig As New SigaMetClasses.cConfig(1, Globales._Corporativo, Globales._Sucursal)
+            Dim Urlgateway As String = CType(oConfig.Parametros("URLGateway"), String)
 
-            Dim ConsultaCRM As DataTable = dtOperador
-            For Each row As DataRow In ConsultaCRM.Rows
-                Dim objRequest As RTGMGateway.SolicitudGateway
-                objRequest.IDCliente = CStr(row("Cliente"))
-                Dim objDireccionEntega = New RTGMCore.DireccionEntrega
-                objDireccionEntega = objGateway.buscarDireccionEntrega(objRequest)
-                row("Nombre") = objDireccionEntega.Nombre
-                row("celular") = objDireccionEntega.TelefonoCelular
-                row("Tipo") = objDireccionEntega.TipoCliente
-                If objDireccionEntega.Ruta IsNot Nothing Then
-                    row("Ruta") = objDireccionEntega.Ruta.IDRuta
-                End If
-                row("Status") = objDireccionEntega.STATUS
+            If String.IsNullOrEmpty(Urlgateway) Then
+                vgrdCatalogo.DataSource = dtOperador
+            Else
 
-            Next
+                Dim objGateway = New RTGMGateway.RTGMGateway(1, SigametSeguridad.Seguridad.Conexion.ConnectionString & "Password = " & Globales._Password & ";")
+                objGateway.URLServicio = Urlgateway
 
-            vgrdCatalogo.DataSource = dtOperador
-            vgrdCatalogo.DataSource = ConsultaCRM
-            If dtOperador.Rows.Count > 0 Then
-                vgrdCatalogo.Items(0).Selected = True
+                Dim ConsultaCRM As DataTable = dtOperador
+                For Each row As DataRow In ConsultaCRM.Rows
+                    Dim objRequest As RTGMGateway.SolicitudGateway
+                    objRequest.IDCliente = CStr(row("Cliente"))
+                    Dim objDireccionEntega = New RTGMCore.DireccionEntrega
+                    objDireccionEntega = objGateway.buscarDireccionEntrega(objRequest)
+                    row("Nombre") = objDireccionEntega.Nombre
+                    row("celular") = objDireccionEntega.TelefonoCelular
+                    row("Tipo") = objDireccionEntega.TipoCliente
+                    If objDireccionEntega.Ruta IsNot Nothing Then
+                        row("Ruta") = objDireccionEntega.Ruta.IDRuta
+                    End If
+                    row("Status") = objDireccionEntega.STATUS
+                Next
+
+                vgrdCatalogo.DataSource = ConsultaCRM
+
             End If
-            'Eliminación de objetos
-            cmdLogistica.Dispose()
-            daLogistica.Dispose()
-        End If
+            If dtOperador.Rows.Count > 0 Then
+                    vgrdCatalogo.Items(0).Selected = True
+                End If
+                'Eliminación de objetos
+                cmdLogistica.Dispose()
+                daLogistica.Dispose()
+            End If
     End Sub
     Private Sub CargaDatosAdicionales()
         If Not vgrdCatalogo.CurrentRow Is Nothing Then
