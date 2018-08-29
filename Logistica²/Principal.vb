@@ -877,20 +877,24 @@ Public Class frmPrincipal
         CargaConfiguracion()
     End Sub
     Public Sub CargaConfiguracion()
-        Dim Settings As AppSettings
-        If File.Exists(Application.StartupPath & "\" & System.Environment.UserName & ".Logistica.exe.config") Then
-            Settings = New AppSettings(Application.StartupPath & "\" & System.Environment.UserName & ".Logistica.exe.config")
-        Else
-            Settings = New AppSettings(Application.StartupPath & "\" & "Default.Logistica.exe.config")
-        End If
-        'Me.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmPrincipal", "BackColor")))
-        'Me.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmPrincipal", "tbForeColor")))
-        If CInt(Settings.GetSetting("frmPrincipal", "LockTime")) = 0 Then
-            Inactivity.Enabled = False
-        Else
-            Inactivity.LockTime = CInt(Settings.GetSetting("frmPrincipal", "LockTime"))
-            Inactivity.InactivityTime = 0
-        End If
+        Try
+            Dim Settings As AppSettings
+            If File.Exists(Application.StartupPath & "\" & System.Environment.UserName & ".Logistica.exe.config") Then
+                Settings = New AppSettings(Application.StartupPath & "\" & System.Environment.UserName & ".Logistica.exe.config")
+            Else
+                Settings = New AppSettings(Application.StartupPath & "\" & "Default.Logistica.exe.config")
+            End If
+            'Me.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmPrincipal", "BackColor")))
+            'Me.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmPrincipal", "tbForeColor")))
+            If CInt(Settings.GetSetting("frmPrincipal", "LockTime")) = 0 Then
+                Inactivity.Enabled = False
+            Else
+                Inactivity.LockTime = CInt(Settings.GetSetting("frmPrincipal", "LockTime"))
+                Inactivity.InactivityTime = 0
+            End If
+        Catch ex As Exception
+            ErrMessage("No existe el archivo " + Application.StartupPath & "\" & "Default.Logistica.exe.config" + " ó al mismo le hace falta alguna de las configuraciones. LLame a soporte. Detalles: " + ex.Message)
+        End Try
     End Sub
     Private Sub Personalizar()
         If Not Me.ActiveMdiChild Is Nothing Then

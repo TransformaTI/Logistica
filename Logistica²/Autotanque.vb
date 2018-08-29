@@ -907,27 +907,31 @@ Public Class frmAutotanque
 
 #Region "Rutinas de configuración"
     Private Sub CargaConfiguracion()
-        Dim Settings As AppSettings
-        Dim ctrl As Control
-        'Validaciíon de archivo de configuración
-        If File.Exists(Application.StartupPath & "\" & System.Environment.UserName & ".Logistica.exe.config") Then
-            Settings = New AppSettings(Application.StartupPath & "\" & System.Environment.UserName & ".Logistica.exe.config")
-        Else
-            Settings = New AppSettings(Application.StartupPath & "\" & "Default.Logistica.exe.config")
-        End If
-        'Carga de parámetros
-        Me.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "BackColor")))
-        vgrdCatalogo.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "CatalogoBackColor")))
-        vgrdCatalogo.AlternativeBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "CatalogoAltBackColor")))
-        vgrdCatalogo.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "CatalogoForeColor")))
-        pnlDatosAdicionales.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "DExtraBackColor")))
-        pnlDatosAdicionales.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "DExtraForeColor")))
-        For Each ctrl In pnlDatosAdicionales.Controls
-            If ctrl.GetType.Name = "TextBox" Then
-                ctrl.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "DExtraTBackColor")))
-                ctrl.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "DExtraTForeColor")))
+        Try
+            Dim Settings As AppSettings
+            Dim ctrl As Control
+            'Validaciíon de archivo de configuración
+            If File.Exists(Application.StartupPath & "\" & System.Environment.UserName & ".Logistica.exe.config") Then
+                Settings = New AppSettings(Application.StartupPath & "\" & System.Environment.UserName & ".Logistica.exe.config")
+            Else
+                Settings = New AppSettings(Application.StartupPath & "\" & "Default.Logistica.exe.config")
             End If
-        Next
+            'Carga de parámetros
+            Me.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "BackColor")))
+            vgrdCatalogo.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "CatalogoBackColor")))
+            vgrdCatalogo.AlternativeBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "CatalogoAltBackColor")))
+            vgrdCatalogo.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "CatalogoForeColor")))
+            pnlDatosAdicionales.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "DExtraBackColor")))
+            pnlDatosAdicionales.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "DExtraForeColor")))
+            For Each ctrl In pnlDatosAdicionales.Controls
+                If ctrl.GetType.Name = "TextBox" Then
+                    ctrl.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "DExtraTBackColor")))
+                    ctrl.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "DExtraTForeColor")))
+                End If
+            Next
+        Catch ex As Exception
+            ErrMessage("No existe el archivo " + Application.StartupPath & "\" & "Default.Logistica.exe.config" + " ó al mismo le hace falta alguna de las configuraciones. LLame a soporte. Detalles: " + ex.Message)
+        End Try
     End Sub
     Private Sub frmOperador_Paint(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles MyBase.Paint
         CargaConfiguracion()

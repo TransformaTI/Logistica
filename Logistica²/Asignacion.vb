@@ -1696,54 +1696,57 @@ Public Class frmAsignacion
 
 #Region "Rutinas de configuración"
     Private Sub CargaConfiguracion()
-        Dim Settings As AppSettings
-        Dim ctrl As Control = Nothing
-        'Validaciíon de archivo de configuración
-        If File.Exists(Application.StartupPath & "\" & System.Environment.UserName & ".Logistica.exe.config") Then
-            Settings = New AppSettings(Application.StartupPath & "\" & System.Environment.UserName & ".Logistica.exe.config")
-        Else
-            Settings = New AppSettings(Application.StartupPath & "\" & "Default.Logistica.exe.config")
-        End If
-        'Carga de parámetros
-        Me.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "BackColor")))
+        Try
+            Dim Settings As AppSettings
+            Dim ctrl As Control = Nothing
+            'Validaciíon de archivo de configuración
+            If File.Exists(Application.StartupPath & "\" & System.Environment.UserName & ".Logistica.exe.config") Then
+                Settings = New AppSettings(Application.StartupPath & "\" & System.Environment.UserName & ".Logistica.exe.config")
+            Else
+                Settings = New AppSettings(Application.StartupPath & "\" & "Default.Logistica.exe.config")
+            End If
+            'Carga de parámetros
+            Me.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "BackColor")))
 
-        grdFolios.CaptionBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosCaptionBackColor")))
-        grdFolios.CaptionForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosCaptionForeColor")))
-        grdFolios.TableStyles(0).BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosBackColor")))
-        grdFolios.TableStyles(0).AlternatingBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosAltBackColor")))
-        grdFolios.TableStyles(0).ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosForeColor")))
-        grdFolios.TableStyles(0).SelectionBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosSelectionColor")))
+            grdFolios.CaptionBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosCaptionBackColor")))
+            grdFolios.CaptionForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosCaptionForeColor")))
+            grdFolios.TableStyles(0).BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosBackColor")))
+            grdFolios.TableStyles(0).AlternatingBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosAltBackColor")))
+            grdFolios.TableStyles(0).ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosForeColor")))
+            grdFolios.TableStyles(0).SelectionBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosSelectionColor")))
 
-        lblOperadores.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "OperadoresCaptionBackColor")))
-        lblOperadores.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "OperadoresCaptionForeColor")))
-        vgrdOperadores.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "OperadoresBackColor")))
-        vgrdOperadores.AlternativeBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "OperadoresAltBackColor")))
-        vgrdOperadores.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "OperadoresForeColor")))
+            lblOperadores.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "OperadoresCaptionBackColor")))
+            lblOperadores.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "OperadoresCaptionForeColor")))
+            vgrdOperadores.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "OperadoresBackColor")))
+            vgrdOperadores.AlternativeBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "OperadoresAltBackColor")))
+            vgrdOperadores.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "OperadoresForeColor")))
 
-        vgrdEmpleadosSinAsignar.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosSABackColor")))
-        vgrdEmpleadosSinAsignar.AlternativeBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosSAAltBackColor")))
-        vgrdEmpleadosSinAsignar.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosSAForeColor")))
+            vgrdEmpleadosSinAsignar.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosSABackColor")))
+            vgrdEmpleadosSinAsignar.AlternativeBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosSAAltBackColor")))
+            vgrdEmpleadosSinAsignar.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosSAForeColor")))
 
-        vgrdAutotanquesSinAsignar.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesSABackColor")))
-        vgrdAutotanquesSinAsignar.AlternativeBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesSAAltBackColor")))
-        vgrdAutotanquesSinAsignar.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesSAForeColor")))
+            vgrdAutotanquesSinAsignar.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesSABackColor")))
+            vgrdAutotanquesSinAsignar.AlternativeBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesSAAltBackColor")))
+            vgrdAutotanquesSinAsignar.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesSAForeColor")))
 
-        vgrdEmpleadosEnPrestamo.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestamoBackColor")))
-        vgrdEmpleadosEnPrestamo.AlternativeBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestamoAltBackColor")))
-        vgrdEmpleadosEnPrestamo.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestamoForeColor")))
+            vgrdEmpleadosEnPrestamo.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestamoBackColor")))
+            vgrdEmpleadosEnPrestamo.AlternativeBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestamoAltBackColor")))
+            vgrdEmpleadosEnPrestamo.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestamoForeColor")))
 
-        vgrdAutotanquesEnPrestamo.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestamoBackColor")))
-        vgrdAutotanquesEnPrestamo.AlternativeBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestamoAltBackColor")))
-        vgrdAutotanquesEnPrestamo.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestamoForeColor")))
+            vgrdAutotanquesEnPrestamo.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestamoBackColor")))
+            vgrdAutotanquesEnPrestamo.AlternativeBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestamoAltBackColor")))
+            vgrdAutotanquesEnPrestamo.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestamoForeColor")))
 
-        vgrdEmpleadosPrestados.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestadosBackColor")))
-        vgrdEmpleadosPrestados.AlternativeBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestadosAltBackColor")))
-        vgrdEmpleadosPrestados.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestadosForeColor")))
+            vgrdEmpleadosPrestados.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestadosBackColor")))
+            vgrdEmpleadosPrestados.AlternativeBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestadosAltBackColor")))
+            vgrdEmpleadosPrestados.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestadosForeColor")))
 
-        vgrdAutotanquesPrestados.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestadosBackColor")))
-        vgrdAutotanquesPrestados.AlternativeBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestadosAltBackColor")))
-        vgrdAutotanquesPrestados.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestadosForeColor")))
-
+            vgrdAutotanquesPrestados.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestadosBackColor")))
+            vgrdAutotanquesPrestados.AlternativeBackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestadosAltBackColor")))
+            vgrdAutotanquesPrestados.ForeColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestadosForeColor")))
+        Catch ex As Exception
+            ErrMessage("No existe el archivo " + Application.StartupPath & "\" & "Default.Logistica.exe.config" + " ó al mismo le hace falta alguna de las configuraciones. LLame a soporte. Detalles: " + ex.Message)
+        End Try
     End Sub
     Private Sub frmOperador_Paint(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles MyBase.Paint
         CargaConfiguracion()

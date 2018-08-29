@@ -1775,74 +1775,78 @@ Public Class frmPersonalizar
     Private Pantalla As String
 
     Private Sub CargaConfiguracion()
-        Dim Settings As AppSettings
-        If File.Exists(Application.StartupPath & "\" & System.Environment.UserName & ".Logistica.exe.config") Then
-            Settings = New AppSettings(Application.StartupPath & "\" & System.Environment.UserName & ".Logistica.exe.config")
-        Else
-            Settings = New AppSettings(Application.StartupPath & "\" & "Default.Logistica.exe.config")
-        End If
-        'Pantalla principal
-        btnBarraPrincipal.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmPrincipal", "BackColor")))
-        nudBloqueo.Value = CInt(Settings.GetSetting("frmPrincipal", "LockTime"))
-        'Catalogo de operadores
-        btnBarraOperador.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmOperador", "BackColor")))
-        btnFTablaOperador.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmOperador", "CatalogoBackColor")))
-        btnATablaOperador.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmOperador", "CatalogoAltBackColor")))
-        btnTTablaOperador.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmOperador", "CatalogoForeColor")))
-        btnFInfoOperador.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmOperador", "DExtraBackColor")))
-        btnTInfoOperador.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmOperador", "DExtraForeColor")))
-        btnTBFOperador.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmOperador", "DExtraTBackColor")))
-        btnTBTOperador.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmOperador", "DExtraForeColor")))
-        'Catalogo de autotanques
-        btnBarraAutotanque.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "BackColor")))
-        btnFTablaAutotanque.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "CatalogoBackColor")))
-        btnATablaAutotanque.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "CatalogoAltBackColor")))
-        btnTTablaAutotanque.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "CatalogoForeColor")))
-        btnFInfoAutotanque.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "DExtraBackColor")))
-        btnTInfoAutotanque.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "DExtraForeColor")))
-        btnTBFAutotanque.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "DExtraTBackColor")))
-        btnTBTAutotanque.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "DExtraForeColor")))
-        'Pantalla de asignación
-        btnBarraAsignacion.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "BackColor")))
-        btnFondoTituloFolios.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosCaptionBackColor")))
-        btnTextoTituloFolios.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosCaptionForeColor")))
-        btnFondoFolios.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosBackColor")))
-        btnAlternoFolios.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosAltBackColor")))
-        btnTextoFolios.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosForeColor")))
-        btnSeleccionFolios.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosSelectionColor")))
-        btnFondoTituloOperadores.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "OperadoresCaptionBackColor")))
-        btnTextoTituloOperadores.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "OperadoresCaptionForeColor")))
-        btnFondoOperadores.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "OperadoresBackColor")))
-        btnAlternoOperadores.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "OperadoresAltBackColor")))
-        btnTextoOperadores.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "OperadoresForeColor")))
-        btnFondoEmpleadosSA.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosSABackColor")))
-        btnAlternoEmpleadosSA.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosSAAltBackColor")))
-        btnTextoEmpleadosSA.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosSAForeColor")))
-        btnFondoAutotanquesSA.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesSABackColor")))
-        btnAlternoAutotanquesSA.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesSAAltBackColor")))
-        btnTextoAutotanquesSA.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesSAForeColor")))
-        btnFondoEmpleadosPrestamo.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestamoBackColor")))
-        btnAlternoEmpleadosPrestamo.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestamoAltBackColor")))
-        btnTextoEmpleadosPrestamo.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestamoForeColor")))
-        btnFondoAutotanquesPrestamo.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestamoBackColor")))
-        btnAlternoAutotanquesPrestamo.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestamoAltBackColor")))
-        btnTextoAutotanquesPrestamo.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestamoForeColor")))
-        btnFondoEmpleadosPrestados.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestadosBackColor")))
-        btnAlternoEmpleadosPrestados.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestadosAltBackColor")))
-        btnTextoEmpleadosPrestados.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestadosForeColor")))
-        btnFondoAutotanquesPrestados.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestadosBackColor")))
-        btnAlternoAutotanquesPrestados.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestadosAltBackColor")))
-        btnTextoAutotanquesPrestados.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestadosForeColor")))
-        'Catalogo de logisticos
-        btnBarraLogistico.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmLogistico", "BackColor")))
-        btnFTablaLogistico.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmLogistico", "CatalogoBackColor")))
-        btnATablaLogistico.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmLogistico", "CatalogoAltBackColor")))
-        btnTTablaLogistico.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmLogistico", "CatalogoForeColor")))
-        'Catalogo de rutas
-        btnBarraRuta.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmRuta", "BackColor")))
-        btnFTablaRuta.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmRuta", "CatalogoBackColor")))
-        btnATablaRuta.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmRuta", "CatalogoAltBackColor")))
-        btnTTablaRuta.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmRuta", "CatalogoForeColor")))
+        Try
+            Dim Settings As AppSettings
+            If File.Exists(Application.StartupPath & "\" & System.Environment.UserName & ".Logistica.exe.config") Then
+                Settings = New AppSettings(Application.StartupPath & "\" & System.Environment.UserName & ".Logistica.exe.config")
+            Else
+                Settings = New AppSettings(Application.StartupPath & "\" & "Default.Logistica.exe.config")
+            End If
+            'Pantalla principal
+            btnBarraPrincipal.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmPrincipal", "BackColor")))
+            nudBloqueo.Value = CInt(Settings.GetSetting("frmPrincipal", "LockTime"))
+            'Catalogo de operadores
+            btnBarraOperador.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmOperador", "BackColor")))
+            btnFTablaOperador.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmOperador", "CatalogoBackColor")))
+            btnATablaOperador.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmOperador", "CatalogoAltBackColor")))
+            btnTTablaOperador.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmOperador", "CatalogoForeColor")))
+            btnFInfoOperador.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmOperador", "DExtraBackColor")))
+            btnTInfoOperador.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmOperador", "DExtraForeColor")))
+            btnTBFOperador.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmOperador", "DExtraTBackColor")))
+            btnTBTOperador.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmOperador", "DExtraForeColor")))
+            'Catalogo de autotanques
+            btnBarraAutotanque.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "BackColor")))
+            btnFTablaAutotanque.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "CatalogoBackColor")))
+            btnATablaAutotanque.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "CatalogoAltBackColor")))
+            btnTTablaAutotanque.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "CatalogoForeColor")))
+            btnFInfoAutotanque.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "DExtraBackColor")))
+            btnTInfoAutotanque.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "DExtraForeColor")))
+            btnTBFAutotanque.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "DExtraTBackColor")))
+            btnTBTAutotanque.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAutotanque", "DExtraForeColor")))
+            'Pantalla de asignación
+            btnBarraAsignacion.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "BackColor")))
+            btnFondoTituloFolios.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosCaptionBackColor")))
+            btnTextoTituloFolios.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosCaptionForeColor")))
+            btnFondoFolios.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosBackColor")))
+            btnAlternoFolios.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosAltBackColor")))
+            btnTextoFolios.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosForeColor")))
+            btnSeleccionFolios.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "FoliosSelectionColor")))
+            btnFondoTituloOperadores.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "OperadoresCaptionBackColor")))
+            btnTextoTituloOperadores.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "OperadoresCaptionForeColor")))
+            btnFondoOperadores.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "OperadoresBackColor")))
+            btnAlternoOperadores.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "OperadoresAltBackColor")))
+            btnTextoOperadores.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "OperadoresForeColor")))
+            btnFondoEmpleadosSA.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosSABackColor")))
+            btnAlternoEmpleadosSA.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosSAAltBackColor")))
+            btnTextoEmpleadosSA.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosSAForeColor")))
+            btnFondoAutotanquesSA.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesSABackColor")))
+            btnAlternoAutotanquesSA.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesSAAltBackColor")))
+            btnTextoAutotanquesSA.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesSAForeColor")))
+            btnFondoEmpleadosPrestamo.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestamoBackColor")))
+            btnAlternoEmpleadosPrestamo.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestamoAltBackColor")))
+            btnTextoEmpleadosPrestamo.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestamoForeColor")))
+            btnFondoAutotanquesPrestamo.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestamoBackColor")))
+            btnAlternoAutotanquesPrestamo.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestamoAltBackColor")))
+            btnTextoAutotanquesPrestamo.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestamoForeColor")))
+            btnFondoEmpleadosPrestados.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestadosBackColor")))
+            btnAlternoEmpleadosPrestados.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestadosAltBackColor")))
+            btnTextoEmpleadosPrestados.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "EmpleadosPrestadosForeColor")))
+            btnFondoAutotanquesPrestados.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestadosBackColor")))
+            btnAlternoAutotanquesPrestados.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestadosAltBackColor")))
+            btnTextoAutotanquesPrestados.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmAsignacion", "AutotanquesPrestadosForeColor")))
+            'Catalogo de logisticos
+            btnBarraLogistico.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmLogistico", "BackColor")))
+            btnFTablaLogistico.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmLogistico", "CatalogoBackColor")))
+            btnATablaLogistico.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmLogistico", "CatalogoAltBackColor")))
+            btnTTablaLogistico.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmLogistico", "CatalogoForeColor")))
+            'Catalogo de rutas
+            btnBarraRuta.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmRuta", "BackColor")))
+            btnFTablaRuta.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmRuta", "CatalogoBackColor")))
+            btnATablaRuta.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmRuta", "CatalogoAltBackColor")))
+            btnTTablaRuta.BackColor = Color.FromArgb(CInt(Settings.GetSetting("frmRuta", "CatalogoForeColor")))
+        Catch ex As Exception
+            ErrMessage("No existe el archivo " + Application.StartupPath & "\" & "Default.Logistica.exe.config" + " ó al mismo le hace falta alguna de las configuraciones. LLame a soporte. Detalles: " + ex.Message)
+        End Try
     End Sub
     Private Sub btnConfig_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBarraPrincipal.Click, btnATablaOperador.Click, btnBarraOperador.Click, btnFInfoOperador.Click, btnFTablaOperador.Click, btnTBFOperador.Click, btnTBTOperador.Click, btnTInfoOperador.Click, btnTTablaOperador.Click, btnATablaAutotanque.Click, btnBarraAutotanque.Click, btnFInfoAutotanque.Click, btnFTablaAutotanque.Click, btnTBFAutotanque.Click, btnTBTAutotanque.Click, btnTInfoAutotanque.Click, btnTTablaAutotanque.Click, btnBarraAsignacion.Click, btnFondoTituloFolios.Click, btnTextoTituloFolios.Click, btnFondoFolios.Click, btnAlternoFolios.Click, btnSeleccionFolios.Click, btnFondoTituloOperadores.Click, btnTextoTituloOperadores.Click, btnFondoOperadores.Click, btnAlternoOperadores.Click, btnFondoEmpleadosSA.Click, btnAlternoEmpleadosSA.Click, btnFondoAutotanquesSA.Click, btnAlternoAutotanquesSA.Click, btnTextoAutotanquesSA.Click, btnFondoEmpleadosPrestamo.Click, btnAlternoEmpleadosPrestamo.Click, btnTextoEmpleadosPrestamo.Click, btnFondoAutotanquesPrestamo.Click, btnAlternoAutotanquesPrestamo.Click, btnTextoAutotanquesPrestamo.Click, btnFondoEmpleadosPrestados.Click, btnAlternoEmpleadosPrestados.Click, btnTextoEmpleadosPrestados.Click, btnFondoAutotanquesPrestados.Click, btnAlternoAutotanquesPrestados.Click, btnTextoAutotanquesPrestados.Click, btnTextoFolios.Click, btnTextoOperadores.Click, btnTextoEmpleadosSA.Click, btnBarraLogistico.Click, btnFTablaLogistico.Click, btnATablaLogistico.Click, btnTTablaLogistico.Click, btnBarraRuta.Click, btnFTablaRuta.Click, btnATablaRuta.Click, btnTTablaRuta.Click
         dlgColor.Color = CType(sender, Button).BackColor
